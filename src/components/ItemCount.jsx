@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Button from '@mui/material/Button';
 import './ItemCount.css';
+import { Fab, Icon } from '@mui/material';
 
-function ItemCount({ stock, inicial, onAdd}) {
-    const [cantidad, setCantidad] = useState(inicial);
+
+function ItemCount({ stock, onAdd}) {
+    const [cantidad, setCantidad] = useState(1);
 
     useEffect(() => {
         if(cantidad === stock){
@@ -19,13 +22,14 @@ function ItemCount({ stock, inicial, onAdd}) {
 
 
     return <>
-        {/* <div className='contCount'>
-        <button onClick={restar}>-</button>
-        <span className='txtCount'>{ cantidad }</span>
-        <button onClick={sumar}>+</button> 
+        <div className='contCount'>
+        <Icon onClick={restar} color="primary">remove_circle</Icon>
+        <span className='txtCount' >{ cantidad }</span>
+        <Icon onClick={sumar} color="primary">add_circle</Icon>
         <br></br>
-        <button onClick={()=> onAdd(cantidad)}>Agregar al carrito</button>
-        </div> */}
+        <Button onClick={()=> onAdd(cantidad)} variant="contained" className='btnCount'>Agregar al carrito</Button>
+        </div>
+       
        </>
 }
 
