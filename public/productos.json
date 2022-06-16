@@ -2,6 +2,7 @@
     {
         "id": "1",
         "title":"Botas Raven",
+        "tipo":"bota",
         "description": "Altura Caña95 cm Altura puntera5 mm Altura Talón95 mm ColorNegro MaterialCuero", 
         "price": 12000, 
         "pictureUrl": "./assets/img/raven.webp"
@@ -9,13 +10,17 @@
       {
         "id": "2",
         "title":"Botas Slouchy",
+        "tipo":"bota",
+        "color":"suela",
         "description": "Altura Caña19 cm Altura puntera5 mm Altura Talón65 mm ColorSuela MaterialGamuzón", 
         "price": 24600, 
-        "pictureUrl": "./assets/img/slouchy.webp"
+        "pictureUrl": "./assets/img/slouchy1.webp"
       },
       {
         "id": "3",
         "title":"Botas Styles",
+        "tipo":"bota",
+        "color":"negro",
         "description": "Altura Caña8 cm Altura puntera5 mm Altura Talón95 mm ColorNegro MaterialCharol", 
         "price": 15000, 
         "pictureUrl": "./assets/img/styles.webp"
@@ -23,9 +28,82 @@
       {
         "id": "4",
         "title":"Botas Bowie",
+        "tipo":"bota",
+        "color":"suela",
         "description": "Altura Caña17 cm Altura puntera5 mm Altura Talón70 mm ColorSuela MaterialCuero", 
         "price": 26000, 
         "pictureUrl": "./assets/img/bowie.webp"
+      },
+      {
+        "id": "5",
+        "title":"Stilleto Hardest",
+        "tipo":"sandalia",
+        "color":"negro",
+        "description": "Altura puntera58 mm Altura Talón120 mm ColorNegro MaterialCharol", 
+        "price": 19000, 
+        "pictureUrl": "./assets/img/hardest.webp"
+      },
+      {
+        "id": "6",
+        "title":"Sandalia Higher",
+        "tipo":"sandalia",
+        "color":"nude",
+        "description": "Altura puntera30 mm Altura Talón125 mm ColorNude MaterialCuero", 
+        "price":14800, 
+        "pictureUrl": "./assets/img/higher.webp"
+      },
+      {
+        "id": "7",
+        "title":"Sandalia Charmest",
+        "tipo":"sandalia",
+        "color":"negro",
+        "description": "Altura Caña8 cm Altura puntera3 mm Altura Talón60 mm ColorNegro MaterialCharol", 
+        "price":13800, 
+        "pictureUrl": "./assets/img/charmest.webp"
+      },
+      {
+        "id": "8",
+        "title":"Sandalia Dumont",
+        "tipo":"sandalia",
+        "color":"plateado",
+        "description": "Altura puntera3 mm Altura Talón105mm ColorPlateado MaterialFaux Leather", 
+        "price":13900, 
+        "pictureUrl": "./assets/img/dumont.webp"
+      },
+      {
+        "id": "9",
+        "title":"Sandalia Tonic",
+        "tipo":"sandalia",
+        "color":"nude",
+        "description": "Altura puntera7 mm Altura Talón65 mm ColorNude MaterialCuero", 
+        "price":9900, 
+        "pictureUrl": "./assets/img/tonic.webp"
+      },
+      {
+        "id": "10",
+        "title":"Zapatilla Lust",
+        "tipo":"zapatilla",
+        "color":"negro",
+        "description": "Altura Caña12 cm Altura puntera20 mm Altura Talón40 mm ColorNegro MaterialTejido", 
+        "price":26900, 
+        "pictureUrl": "./assets/img/tonic.webp"
+      },
+      {
+        "id": "11",
+        "title":"Zapatilla Wind",
+        "tipo":"zapatilla",
+        "color":"negro",
+        "description": "Altura Caña7 cm Altura puntera35 mm Altura Talón65 mm ColorNegro MaterialMesh", 
+        "price":24200, 
+        "pictureUrl": "./assets/img/wind.webp"
+      },
+      {
+        "id": "12",
+        "title":"Zapatilla Motive",
+        "tipo":"zapatilla",
+        "color":"blanco",
+        "description": "Altura Caña6 cm Altura puntera35 mm Altura Talón40 mm ColorBlanco MaterialCuero", 
+        "price":14200, 
+        "pictureUrl": "./assets/img/motive.webp"
       }
-
 ]

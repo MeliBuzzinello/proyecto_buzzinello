@@ -1,50 +1,52 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import './ItemListContainer.css';
+import Loading from "./Loading";
 
 
-function ItemListContainer({greeting}) {
+function ItemListContainer() {
+
+  const { urlid } = useParams();
+  console.log(urlid);
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   const [resultado, setResultado] = useState([]);
 
-    useEffect(() => {
-      setLoading(true);
-      setError(false);
-      setResultado([]);
-      const getItem = new Promise ((res, rej)=>{
-        setTimeout(() => {
-          res([
-          {id:1,title:'Botas Raven',description:'Altura Caña95 cm Altura puntera5 mm Altura Talón95 mm ColorNegro MaterialCuero', price:12000, pictureUrl:'./assets/img/raven.webp'},
-          {id:2,title:'Botas Slouchy',description:'Altura Caña19 cm Altura puntera5 mm Altura Talón65 mm ColorSuela MaterialGamuzón', price:24600, pictureUrl:'./assets/img/slouchy.webp'},
-          {id:3,title:'Botas Styles',description:'Altura Caña8 cm Altura puntera5 mm Altura Talón95 mm ColorNegro MaterialCharol', price:15000, pictureUrl:'./assets/img/styles.webp'},
-          {id:4,title:'Botas Bowie',description:'Altura Caña17 cm Altura puntera5 mm Altura Talón70 mm ColorSuela MaterialCuero', price:28900, pictureUrl:'./assets/img/bowie.webp'}])
-        }, 2000);
-      });
+  useEffect(() => {
+    setLoading(true);
+    setError(false);
+    setResultado([]);
 
-       getItem
-        .then((res)=>{
-          console.log(res)
+    setTimeout(() => {
+      fetch('./productos.json')
+        .then(res => res.json())
+        .then(res => {
           setResultado(res)
-         })
-        .catch((error)=>{
+          console.log(res)
+        })
+        .catch((error) => {
           console.log(error)
           setError(true)
-         })
-        .finally(()=>{
-          setLoading(false)
         })
-     
-    }, []);
-  
+        .finally(() => setLoading(false))
+    }, 2000);
+
+    console.log(resultado)
+    setResultado(!urlid ? resultado : (resultado.filter(item => item.tipo == urlid)));
+    console.log(resultado)
+
+  }, [urlid]);
 
 
-    return <>
-    <p className="parrafo">{`Hola ${greeting}, gracias por visitarnos!`}</p>
-    <div>{loading && 'loading...'}</div>
-    <div>{error && 'Hubo un error en el servidor'}</div> 
-    <ItemList resultado={resultado}/> 
-    </>
-  }
-  
-  export default ItemListContainer;
+
+  return <>
+    <p className="parrafo">{`Nuestros productos`}</p>
+    <div>{loading && <Loading />}</div>
+    <div>{error && 'Hubo un error en el servidor'}</div>
+    <div>{loading || <ItemList resultado={resultado} />}</div>
+
+  </>
+}
+
+export default ItemListContainer;

@@ -11,9 +11,10 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 
-const pages = ['Servicios', 'Nosotros', 'Contacto'];
+//const pages = ['Servicios', 'Nosotros', 'Contacto'];
 //const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavBar = () => {
@@ -87,11 +88,13 @@ const NavBar = () => {
                 display: { xs: 'block', md: 'none' },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+              {/* {pages.map((page) => ( */}
+                <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">HOME</Typography>
                 </MenuItem>
-              ))}
+              {/* )
+              ) */}
+              {/* } */}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -114,15 +117,14 @@ const NavBar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
+                sx={{ my: 2, color: 'white', display: 'block' }}>
+                  <Link to="/home"> INICIO </Link>
+                  <Link to="/productos"> PRODUCTOS </Link>
+                  <Link to="/categoria/bota"> BOTAS </Link>
+                  <Link to="/categoria/sandalia"> SANDALIAS </Link>
+                  <Link to="/categoria/zapatilla"> ZAPATILLAS </Link>
               </Button>
-            ))}
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
 export default function Item({resultado}) {
-  const {id, title, description, price, pictureUrl} = resultado;
+  const {id, title, color, price, pictureUrl} = resultado;
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function Item({resultado}) {
             {title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            {description}
+            Color:{color}
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
             ${price}
