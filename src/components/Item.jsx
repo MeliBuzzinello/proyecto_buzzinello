@@ -4,13 +4,15 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
+import { Link } from 'react-router-dom';
+import ItemDetailContainer from './ItemDetailContainer';
 
 export default function Item({resultado}) {
   const {id, title, color, price, pictureUrl} = resultado;
 
   return (
     <>
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 290 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -30,7 +32,7 @@ export default function Item({resultado}) {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">Ver más</Button>
+      <Link to={'/item/'+ id} element={<ItemDetailContainer/>}><Button size="small" color="primary" >Ver más</Button></Link>
       </CardActions>
     </Card>
     </>

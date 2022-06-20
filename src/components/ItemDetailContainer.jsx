@@ -1,43 +1,47 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import Loading from './Loading';
 
+
 export default function ItemDetailContainer() {
+
+    const {idi} = useParams();
+    console.log(idi)
+
     const [loading, setLoading] = useState();
     const [error, setError] = useState()
-    const [resultado, setResultado] = useState([]);
+    const [resultado, setResultado] = useState({});
 
     useEffect(() => {
         setLoading(true);
         setError(false);
-        setResultado([]);
+        setResultado();
 
-        const getItem = new Promise((res, rej) => {
-            setTimeout(() => {
-                fetch('./productos.json')
-                .then((respuesta) => respuesta.json())
-                .then((data) => {
-                    console.log(data)
-                    setResultado(data.find(e => e > e.id))
-                    console.log(resultado)
+        setTimeout(() => {
+            fetch('https://run.mocky.io/v3/21cefb17-9f1e-4629-927b-81200d0ebbe3')
+            .then(res => res.json())
+            .then(res =>{
+                  setResultado(res)
+                  setResultado(res.find(item => item.id === idi))
+                  console.log(resultado)
+                  console.log(res)
                 })
-                .catch((error) => {
-                    console.log(error)
-                    setError(true)
+            .catch((error) => {
+                  console.log(error)
+                  setError(true)
                 })
-                .finally(() => {
-                    setLoading(false)
-                })
-            }, 2000);
-        })
-    }, []);
+            .finally(() => setLoading(false))
+          }, 2000);
 
+
+    }, [idi]);
 
 
     return <>
-        <div>{loading && <Loading/>}</div>
+        <div>{loading && <Loading />}</div>
         <div>{error && 'Hubo un error en el servidor'}</div>
-        <div>{loading || <ItemDetail resultado={resultado}/>}</div>
+        <div>{loading || <ItemDetail resultado={resultado} />}</div>
     </>
 }
 

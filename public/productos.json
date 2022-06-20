@@ -3,6 +3,7 @@
         "id": "1",
         "title":"Botas Raven",
         "tipo":"bota",
+        "color":"negro",
         "description": "Altura Caña95 cm Altura puntera5 mm Altura Talón95 mm ColorNegro MaterialCuero", 
         "price": 12000, 
         "pictureUrl": "./assets/img/raven.webp"
@@ -86,7 +87,7 @@
         "color":"negro",
         "description": "Altura Caña12 cm Altura puntera20 mm Altura Talón40 mm ColorNegro MaterialTejido", 
         "price":26900, 
-        "pictureUrl": "./assets/img/tonic.webp"
+        "pictureUrl": "./assets/img/lust.webp"
       },
       {
         "id": "11",

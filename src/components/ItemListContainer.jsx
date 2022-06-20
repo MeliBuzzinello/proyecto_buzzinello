@@ -7,8 +7,10 @@ import Loading from "./Loading";
 
 function ItemListContainer() {
 
-  const { urlid } = useParams();
-  console.log(urlid);
+  const { id } = useParams();
+  console.log(id);
+  
+
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
   const [resultado, setResultado] = useState([]);
@@ -19,26 +21,21 @@ function ItemListContainer() {
     setResultado([]);
 
     setTimeout(() => {
-      fetch('./productos.json')
-        .then(res => res.json())
-        .then(res => {
-          setResultado(res)
-          console.log(res)
-        })
-        .catch((error) => {
-          console.log(error)
-          setError(true)
-        })
-        .finally(() => setLoading(false))
+      fetch('https://run.mocky.io/v3/21cefb17-9f1e-4629-927b-81200d0ebbe3')
+      .then(res => res.json())
+      .then(res =>{
+            setResultado(res)
+            setResultado( (!id) ? res : (res.filter(item => item.tipo == id)))
+            console.log(resultado)
+          })
+      .catch((error) => {
+            console.log(error)
+            setError(true)
+          })
+      .finally(() => setLoading(false))
     }, 2000);
 
-    console.log(resultado)
-    setResultado(!urlid ? resultado : (resultado.filter(item => item.tipo == urlid)));
-    console.log(resultado)
-
-  }, [urlid]);
-
-
+  },[id]);
 
   return <>
     <p className="parrafo">{`Nuestros productos`}</p>
