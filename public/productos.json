@@ -6,6 +6,7 @@
         "color":"negro",
         "description": "Altura Caña95 cm Altura puntera5 mm Altura Talón95 mm ColorNegro MaterialCuero", 
         "price": 12000, 
+        "stock": 8, 
         "pictureUrl": "./assets/img/raven.webp"
       },
       {
@@ -15,6 +16,7 @@
         "color":"suela",
         "description": "Altura Caña19 cm Altura puntera5 mm Altura Talón65 mm ColorSuela MaterialGamuzón", 
         "price": 24600, 
+        "stock": 6, 
         "pictureUrl": "./assets/img/slouchy1.webp"
       },
       {
@@ -24,6 +26,7 @@
         "color":"negro",
         "description": "Altura Caña8 cm Altura puntera5 mm Altura Talón95 mm ColorNegro MaterialCharol", 
         "price": 15000, 
+        "stock": 34, 
         "pictureUrl": "./assets/img/styles.webp"
       },
       {
@@ -33,6 +36,7 @@
         "color":"suela",
         "description": "Altura Caña17 cm Altura puntera5 mm Altura Talón70 mm ColorSuela MaterialCuero", 
         "price": 26000, 
+        "stock": 23, 
         "pictureUrl": "./assets/img/bowie.webp"
       },
       {
@@ -42,6 +46,7 @@
         "color":"negro",
         "description": "Altura puntera58 mm Altura Talón120 mm ColorNegro MaterialCharol", 
         "price": 19000, 
+        "stock": 12, 
         "pictureUrl": "./assets/img/hardest.webp"
       },
       {
@@ -51,6 +56,7 @@
         "color":"nude",
         "description": "Altura puntera30 mm Altura Talón125 mm ColorNude MaterialCuero", 
         "price":14800, 
+        "stock": 3, 
         "pictureUrl": "./assets/img/higher.webp"
       },
       {
@@ -60,6 +66,7 @@
         "color":"negro",
         "description": "Altura Caña8 cm Altura puntera3 mm Altura Talón60 mm ColorNegro MaterialCharol", 
         "price":13800, 
+        "stock": 6, 
         "pictureUrl": "./assets/img/charmest.webp"
       },
       {
@@ -69,6 +76,7 @@
         "color":"plateado",
         "description": "Altura puntera3 mm Altura Talón105mm ColorPlateado MaterialFaux Leather", 
         "price":13900, 
+        "stock": 12, 
         "pictureUrl": "./assets/img/dumont.webp"
       },
       {
@@ -78,6 +86,7 @@
         "color":"nude",
         "description": "Altura puntera7 mm Altura Talón65 mm ColorNude MaterialCuero", 
         "price":9900, 
+        "stock": 9, 
         "pictureUrl": "./assets/img/tonic.webp"
       },
       {
@@ -87,6 +96,7 @@
         "color":"negro",
         "description": "Altura Caña12 cm Altura puntera20 mm Altura Talón40 mm ColorNegro MaterialTejido", 
         "price":26900, 
+        "stock": 23, 
         "pictureUrl": "./assets/img/lust.webp"
       },
       {
@@ -96,6 +106,7 @@
         "color":"negro",
         "description": "Altura Caña7 cm Altura puntera35 mm Altura Talón65 mm ColorNegro MaterialMesh", 
         "price":24200, 
+        "stock": 8, 
         "pictureUrl": "./assets/img/wind.webp"
       },
       {
@@ -105,6 +116,7 @@
         "color":"blanco",
         "description": "Altura Caña6 cm Altura puntera35 mm Altura Talón40 mm ColorBlanco MaterialCuero", 
         "price":14200, 
+        "stock": 7, 
         "pictureUrl": "./assets/img/motive.webp"
       }
 ]

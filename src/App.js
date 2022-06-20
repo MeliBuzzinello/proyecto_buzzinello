@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
+import ItemCart from "./components/ItemCart";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from "./components/NavBar";
@@ -7,10 +8,6 @@ import NavBar from "./components/NavBar";
 
 
 function App() {
-
-  // const onAdd  = (cantidad)=> {
-  //     alert(`Tiene ${cantidad} productos en el carrito`);
-  // }
 
   return <>
   <BrowserRouter>
@@ -22,7 +19,7 @@ function App() {
     <Route path="/categoria/:id" element={<ItemListContainer/>} />
     
     <Route path="/item/:idi" element={<ItemDetailContainer/>} />
-    <Route/>
+    <Route path="/cart" element={<ItemCart/>}/>
 
   </Routes>
   </BrowserRouter>

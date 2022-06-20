@@ -11,16 +11,22 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ItemCount from './ItemCount';
 import Rating from '@mui/material/Rating';
+import { useState } from 'react';
+import { Button } from '@mui/material';
+import ItemCart from './ItemCart';
+import { Link } from 'react-router-dom';
 
 
 export default function ItemDetail({ resultado }) {
     const theme = useTheme();
-    const { id, title, description, price, pictureUrl } = resultado;
+    const { id, title, description, price, stock, pictureUrl } = resultado;
 
     const [value, setValue] = React.useState(2);
+    const [mostrarCont, setMostrarCont] = useState(true);
 
     const onAdd  = (cantidad)=> {
         alert(`Tiene ${cantidad} productos en el carrito`);
+        setMostrarCont(false);
     }
 
     return (
@@ -60,7 +66,7 @@ export default function ItemDetail({ resultado }) {
                     </Typography>
                 </CardContent>
 
-                <ItemCount stock={20} onAdd={onAdd} />
+                { mostrarCont ? <ItemCount stock={stock} onAdd={onAdd} /> : <Link to='/cart' element={<ItemCart/>}><div className='contCount'><Button variant="contained">Ir al carrito</Button></div></Link> }
                 
                 <div>
                     <Accordion>

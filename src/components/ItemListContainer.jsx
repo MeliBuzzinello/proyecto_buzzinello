@@ -21,11 +21,11 @@ function ItemListContainer() {
     setResultado([]);
 
     setTimeout(() => {
-      fetch('https://run.mocky.io/v3/21cefb17-9f1e-4629-927b-81200d0ebbe3')
+      fetch('https://run.mocky.io/v3/3399c6e0-f68f-465e-a691-f3eda10f4351')
       .then(res => res.json())
       .then(res =>{
             setResultado(res)
-            setResultado( (!id) ? res : (res.filter(item => item.tipo == id)))
+            setResultado( (!id) ? res : (res.filter(item => item.tipo === id)))
             console.log(resultado)
           })
       .catch((error) => {
