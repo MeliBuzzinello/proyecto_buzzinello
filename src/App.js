@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { CartContext } from "./context/CartContext";
 import './App.css';
 import ItemCart from "./components/ItemCart";
 import ItemDetailContainer from "./components/ItemDetailContainer";
@@ -7,9 +8,13 @@ import NavBar from "./components/NavBar";
 
 
 
+
+
 function App() {
 
-  return <>
+  return ( 
+  <>
+  <CartContext>
   <BrowserRouter>
   <NavBar/>
   <Routes>
@@ -23,8 +28,9 @@ function App() {
 
   </Routes>
   </BrowserRouter>
-
+  </CartContext>
   </>
+  )
 }
 
 export default App;

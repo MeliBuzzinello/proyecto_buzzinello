@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+// import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -15,18 +15,23 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import ItemCart from './ItemCart';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { MiContext } from '../context/CartContext';
 
 
 export default function ItemDetail({ resultado }) {
-    const theme = useTheme();
+    //const theme = useTheme();
     const { id, title, description, price, stock, pictureUrl } = resultado;
 
     const [value, setValue] = React.useState(2);
     const [mostrarCont, setMostrarCont] = useState(true);
 
+    const {isInCart, addItem} = useContext(MiContext);
+
     const onAdd  = (cantidad)=> {
-        alert(`Tiene ${cantidad} productos en el carrito`);
         setMostrarCont(false);
+        isInCart(id);
+        addItem(resultado, cantidad);
     }
 
     return (
@@ -66,7 +71,7 @@ export default function ItemDetail({ resultado }) {
                     </Typography>
                 </CardContent>
 
-                { mostrarCont ? <ItemCount stock={stock} onAdd={onAdd} /> : <Link to='/cart' element={<ItemCart/>}><div className='contCount'><Button variant="contained">Ir al carrito</Button></div></Link> }
+                {mostrarCont ? <ItemCount stock={stock} onAdd={onAdd}/> : <Link to='/cart' element={<ItemCart/>}><div className='contCount'><Button variant="contained">Ir al carrito</Button></div></Link> }
                 
                 <div>
                     <Accordion>

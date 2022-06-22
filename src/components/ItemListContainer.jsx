@@ -8,8 +8,6 @@ import Loading from "./Loading";
 function ItemListContainer() {
 
   const { id } = useParams();
-  console.log(id);
-  
 
   const [loading, setLoading] = useState();
   const [error, setError] = useState();
@@ -26,10 +24,8 @@ function ItemListContainer() {
       .then(res =>{
             setResultado(res)
             setResultado( (!id) ? res : (res.filter(item => item.tipo === id)))
-            console.log(resultado)
           })
       .catch((error) => {
-            console.log(error)
             setError(true)
           })
       .finally(() => setLoading(false))

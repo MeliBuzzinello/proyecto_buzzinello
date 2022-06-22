@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import { MiContext } from '../context/CartContext';
 
-function CartWidget({cant}) {
+
+
+function CartWidget( ) {
+
+  const {getItemCant} = useContext(MiContext);
+
   return <>
   <ShoppingCartRoundedIcon/>
-  <span>{cant}</span>
+  <span>{getItemCant()}</span>
   </>
  
 }
