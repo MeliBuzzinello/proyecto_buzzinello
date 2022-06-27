@@ -38,7 +38,6 @@ function ItemListContainer() {
     <div>{loading && <Loading />}</div>
     <div>{error && 'Hubo un error en el servidor'}</div>
     <div>{loading || <ItemList resultado={resultado} />}</div>
-
   </>
 }
 

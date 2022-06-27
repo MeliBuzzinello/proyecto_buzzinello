@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    margin: 50px;
+   
+}
+
+.footerLegales{
+    text-align: center;
+    background-color: dimgrey;
+    color: #ffffff;
+    padding: 1px;
+}

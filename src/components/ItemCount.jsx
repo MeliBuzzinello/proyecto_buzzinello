@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import './ItemCount.css';
-import { Fab, Icon } from '@mui/material';
+import { Icon } from '@mui/material';
+import ShoppingCartRounded from '@mui/icons-material/ShoppingCartRounded';
 
 
 function ItemCount({ stock, onAdd}) {
@@ -27,7 +28,7 @@ function ItemCount({ stock, onAdd}) {
         <span className='txtCount' >{ cantidad }</span>
         <Icon onClick={sumar} color="primary">add_circle</Icon>
         <br></br>
-        <Button onClick={()=> onAdd(cantidad)} variant="contained" >Agregar al carrito</Button>
+        <Button onClick={()=> onAdd(cantidad)} variant="contained" startIcon={<ShoppingCartRounded />}>Agregar al carrito</Button>
         </div>
        </>
 }

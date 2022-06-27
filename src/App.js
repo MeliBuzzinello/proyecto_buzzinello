@@ -5,8 +5,7 @@ import ItemCart from "./components/ItemCart";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from "./components/NavBar";
-
-
+import Footer from "./components/Footer";
 
 
 
@@ -28,6 +27,7 @@ function App() {
 
   </Routes>
   </BrowserRouter>
+  <Footer/>
   </CartContext>
   </>
   )

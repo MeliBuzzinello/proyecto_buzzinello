@@ -42,7 +42,7 @@ export const CartContext = ({children}) =>  {
 
     // cantidad total de productos
     const getItemCant = () => {
-        return carrito.reduce((acc, item) => acc += item.cantidad, 0);
+        return carrito.reduce((acc, item) => acc += item.cantidad, 0)
     }
 
     //precio total del carrito
