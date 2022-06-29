@@ -21,7 +21,7 @@ import { MiContext } from '../context/CartContext';
 
 export default function ItemDetail({ resultado }) {
     //const theme = useTheme();
-    const { id, title, description, price, stock, pictureUrl } = resultado;
+    const { id, name, description, price, stock, image } = resultado;
 
     const [value, setValue] = React.useState(2);
     const [mostrarCont, setMostrarCont] = useState(true);
@@ -39,7 +39,7 @@ export default function ItemDetail({ resultado }) {
             <CardMedia
                 component="img"
                 sx={{ width: 280 }}
-                image={pictureUrl}
+                image={image}
                 alt="Imagen"
             />
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
@@ -58,7 +58,7 @@ export default function ItemDetail({ resultado }) {
 
                 <CardContent sx={{ flex: '1 0 auto' }}>
                     <Typography component="div" variant="h5">
-                        {title}
+                        {name}
                     </Typography>
                     <Typography color="text.secondary" >
                         Código:{id}

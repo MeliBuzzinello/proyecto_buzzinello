@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import ItemDetailContainer from './ItemDetailContainer';
 
 export default function Item({resultado}) {
-  const {id, title, color, price, pictureUrl} = resultado;
+  const {id, name, color, price, image} = resultado;
 
   return (
     <>
@@ -16,12 +16,12 @@ export default function Item({resultado}) {
       <CardActionArea>
         <CardMedia
           component="img"
-          image={pictureUrl}
+          image={image}
           alt="Imagen"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             Color:{color}

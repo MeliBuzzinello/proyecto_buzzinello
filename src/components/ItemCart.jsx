@@ -121,7 +121,7 @@ export default function ItemCart() {
                 <Grid container spacing={2}>
                   <Grid item>
                     <ButtonBase sx={{ width: 128, height: 128 }}>
-                      <Img alt="producto" src={item.pictureUrl} />
+                      <Img alt="producto" src={item.image} />
                     </ButtonBase>
                   </Grid>
                   <Grid item xs container direction="row" spacing={2}>
@@ -131,7 +131,7 @@ export default function ItemCart() {
                         variant="subtitle1"
                         component="div"
                       >
-                        {item.title}
+                        {item.name}
                       </Typography>
                     </Grid>
                     <Grid item xs>

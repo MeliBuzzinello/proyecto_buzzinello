@@ -70,9 +70,9 @@ function NavBar (props) {
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }} className='boxLink'>
                   <Link to="/productos" className='linkNav'> PRODUCTOS </Link>
-                  <Link to="/categoria/bota" className='linkNav'> BOTAS </Link>
-                  <Link to="/categoria/sandalia" className='linkNav'> SANDALIAS </Link>
-                  <Link to="/categoria/zapatilla" className='linkNav'> ZAPATILLAS </Link>
+                  <Link to="/categoria/botas" className='linkNav'> BOTAS </Link>
+                  <Link to="/categoria/sandalias" className='linkNav'> SANDALIAS </Link>
+                  <Link to="/categoria/zapatillas" className='linkNav'> ZAPATILLAS </Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
