@@ -27,6 +27,7 @@ function ItemListContainer() {
     const db = getFirestore();
     const productsCollection = collection(db, "products");
 
+    setTimeout(() => {
     if (id) {
       const q = query(productsCollection, where("category", "==", id));
       getDocs(q)
@@ -35,9 +36,7 @@ function ItemListContainer() {
             snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
           );
         })
-        .catch((error) => {
-          setError(true);
-        })
+        .catch((error) => setError(true))
         .finally(() => setLoading(false));
     } else {
       getDocs(productsCollection)
@@ -46,11 +45,10 @@ function ItemListContainer() {
             snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
           );
         })
-        .catch((error) => {
-          setError(true);
-        })
+        .catch((error) => setError(true))
         .finally(() => setLoading(false));
     }
+  }, 2000);
     // setTimeout(() => {
     //   fetch('https://run.mocky.io/v3/3399c6e0-f68f-465e-a691-f3eda10f4351')
     //   .then(res => res.json())

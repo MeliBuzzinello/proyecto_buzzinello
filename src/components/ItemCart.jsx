@@ -181,7 +181,7 @@ export default function ItemCart() {
           <Button onClick={clearCart} variant="contained">
             Vaciar carrito
           </Button>
-          <Button variant="contained">Finalizar compra</Button>
+          <Link to="/checkout"><Button variant="contained">Finalizar compra</Button></Link>
         </Paper>
       </div>
     </>

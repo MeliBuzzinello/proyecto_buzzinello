@@ -23,7 +23,6 @@ export default function ItemDetailContainer() {
         const productoFB = doc(db , 'products', idi);
 
         getDoc(productoFB).then((snapshot)=>{
-             console.log(snapshot)
              setResultado({...snapshot.data(), id: snapshot.id })
         }).catch((error) => {
                       setError(true)

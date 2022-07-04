@@ -9,7 +9,7 @@ import ItemDetailContainer from './ItemDetailContainer';
 
 export default function Item({resultado}) {
   const {id, name, color, price, image} = resultado;
-
+  
   return (
     <>
     <Card sx={{ maxWidth: 290 }}>
