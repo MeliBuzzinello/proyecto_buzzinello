@@ -6,7 +6,7 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
 import "./ItemCart.css";
-import { Button, IconButton } from "@mui/material";
+import {IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link } from "react-router-dom";
@@ -45,7 +45,7 @@ export default function ItemCart() {
           <Typography variant="h5" sx={{ margin: 5 }}>
             Todavía no agregaste ningún producto al carrito
           </Typography>
-          <Link to="/productos"><Button variant="contained" sx={{ margin: 2}}>EMPEZAR A COMPRAR</Button></Link>
+          <Link to="/productos"><button className='btnCkeckout'>EMPEZAR A COMPRAR</button></Link>
         </Paper>
       </>
     )
@@ -120,9 +120,10 @@ export default function ItemCart() {
               >
                 <Grid container spacing={2}>
                   <Grid item>
+                  <Link to={'/item/'+ item.id} >
                     <ButtonBase sx={{ width: 128, height: 128 }}>
                       <Img alt="producto" src={item.image} />
-                    </ButtonBase>
+                    </ButtonBase></Link>
                   </Grid>
                   <Grid item xs container direction="row" spacing={2}>
                     <Grid item xs>
@@ -178,10 +179,10 @@ export default function ItemCart() {
           <Typography variant="body2" color="text.secondary">
             TOTAL DE PRODUCTOS: {getItemCant()}
           </Typography>
-          <Button onClick={clearCart} variant="contained">
+          <button className='btnCkeckout' onClick={clearCart}>
             Vaciar carrito
-          </Button>
-          <Link to="/checkout"><Button variant="contained">Finalizar compra</Button></Link>
+          </button>
+          <Link to="/checkout"><button className='btnCkeckout'>Finalizar compra</button></Link>
         </Paper>
       </div>
     </>

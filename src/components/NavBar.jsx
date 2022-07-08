@@ -14,6 +14,9 @@ import { Link } from 'react-router-dom';
 import './NavBar.css';
 import { useContext } from 'react';
 import { MiContext } from '../context/CartContext';
+import logo from '../logo.jpg';
+import logoMobile from '../logoMobile.png';
+
 
 const drawerWidth = 240;
 
@@ -33,14 +36,14 @@ function NavBar (props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-      <img src="./assets/img/logoFondoBlanco.png" alt="logo" />
+      <img src={logoMobile} alt={logo}/>
       </Typography>
       <Divider />
       <List>
                   <Link to="/productos" className='linkMobile'> PRODUCTOS </Link>
-                  <Link to="/categoria/bota" className='linkMobile'> BOTAS </Link>
-                  <Link to="/categoria/sandalia" className='linkMobile'> SANDALIAS </Link>
-                  <Link to="/categoria/zapatilla" className='linkMobile'> ZAPATILLAS </Link>
+                  <Link to="/categoria/botas" className='linkMobile'> BOTAS </Link>
+                  <Link to="/categoria/sandalias" className='linkMobile'> SANDALIAS </Link>
+                  <Link to="/categoria/zapatillas" className='linkMobile'> ZAPATILLAS </Link>
          </List>
     </Box>
   );
@@ -49,7 +52,7 @@ function NavBar (props) {
 
   return (
     <Box sx={{ display: 'flex' }}  className='boxNav'>
-       <div className='subNav'>💳 Cuotas sin interés   |   Envíos a todo el país 🚚  </div>
+       {/* <div className='subNav'>💳 Cuotas sin interés   |   Envíos a todo el país 🚚  </div> */}
       <AppBar component="nav">
         <Toolbar className='boxNav'>
           <IconButton
@@ -66,7 +69,7 @@ function NavBar (props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-           <img src="./assets/img/logo.jpg" alt="logo" className='logoimg'/>
+           <Link to="/" ><img src={logo} alt={logo} className='logoimg'/></Link>
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }} className='boxLink'>
                   <Link to="/productos" className='linkNav'> PRODUCTOS </Link>
@@ -99,11 +102,11 @@ function NavBar (props) {
         </Drawer>
       </Box>
 
-      <Box component="main" sx={{ p: 3}}> 
-     
+      {/* <Box component="main" sx={{ p: 3}}> 
+      </Box> */}
       <Toolbar />
        
-      </Box>
+      
     </Box>
   );
 }

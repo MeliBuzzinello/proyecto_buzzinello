@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
 import './ItemCount.css';
 import { Icon } from '@mui/material';
 import ShoppingCartRounded from '@mui/icons-material/ShoppingCartRounded';
@@ -24,11 +23,11 @@ function ItemCount({ stock, onAdd}) {
 
     return <>
         <div className='contCount'>
-        <Icon onClick={restar} color="primary">remove_circle</Icon>
+        <Icon onClick={restar} className='icon' >remove_circle</Icon>
         <span className='txtCount' >{ cantidad }</span>
-        <Icon onClick={sumar} color="primary">add_circle</Icon>
+        <Icon onClick={sumar} className='icon' >add_circle</Icon>
         <br></br>
-        <Button onClick={()=> onAdd(cantidad)} variant="contained" startIcon={<ShoppingCartRounded />}>Agregar al carrito</Button>
+        <button className='btnCkeckout' onClick={()=> onAdd(cantidad)} ><ShoppingCartRounded /> Agregar al carrito</button>
         </div>
        </>
 }

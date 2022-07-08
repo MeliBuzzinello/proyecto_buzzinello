@@ -6,21 +6,23 @@ import {addDoc , collection , getFirestore} from 'firebase/firestore';
 import { useForm } from "react-hook-form";
 import "./Checkout.css";
 import { useState } from 'react';
+import { Paper, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+
+
 
 export default function Checkout() {
-  // const [name, setName] = useState('');
-  // const [email , setEmail] = useState('');
-  // const [cel , setCel] = useState('');
   const db = getFirestore();
   const orderCollections = collection(db , 'orders');
 
-  const [num , setNum] = useState('');
+  const [finalize , setFinalize] = useState('');
  
   const {carrito , getItemPrice} = useContext(MiContext);
 
   const { register, handleSubmit, formState: { errors }} = useForm();
 
-  const onSubmit = (data) => {
+    const onSubmit = (data) => {
     const total = getItemPrice();
     
     const order = {
@@ -30,54 +32,75 @@ export default function Checkout() {
         };
         
     addDoc(orderCollections , order).then(({id})=> {
-      setNum(id);
+      setFinalize(id);
       });
-
+    
   };
 
-  if(num){
+  if(finalize){
     return(
-      <div>su orden fue exitosa. Número de orden {num}</div>
+      <>
+      <Paper
+          sx={{
+            textAlign: "center",
+            p: 2,
+            margin: "auto",
+            marginTop: 10,
+            marginBlock: 10,
+            maxWidth: "80%",
+            flexGrow: 1,
+            backgroundColor: (theme) =>
+              theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+          }}
+        >
+          <CheckCircleOutlineIcon  color="disabled" sx={{ fontSize: 100 }}/>
+          <Typography variant="h5" sx={{ margin: 5 }}>
+            Su orden fue realizada exitosamente.
+          </Typography>
+          <Typography variant="h6" sx={{ margin: 5 }}>
+           NÚMERO DE ORDEN: {finalize}
+          </Typography>
+          <Link to="/productos"><button className='btnCkeckout'>SEGUIR COMPRANDO</button></Link>
+        </Paper>
+      </>
     )
   }
-  console.log(num)
-  // function handleClick(){
-  //   const total = getItemPrice();
-
-  //   const order = {
-  //       buyer: {name, email, cel},
-  //       items: carrito,
-  //       total
-  //   };
-  //   console.log(order)
-  //   addDoc(orderCollections , order).then(({id})=> console.log(id))
-  // }
+  
 
 
   return (
      <>
-    {/* <div>Checkout</div>
-    <input onChange={(e)=>setName(e.target.value)} placeholder='nombre' ></input>
-    <input onChange={(e)=>setEmail(e.target.value)} placeholder='correo' ></input>
-    <input onChange={(e)=>setCel(e.target.value)} placeholder='telefono' ></input>
-  
-    <button onClick={()=> handleClick()}>Enviar</button> */}
-
+     <Paper
+          sx={{
+            textAlign: "center",
+            p: 2,
+            margin: "auto",
+            marginTop: 10,
+            marginBlock: 10,
+            maxWidth: "80%",
+            flexGrow: 1,
+            backgroundColor: (theme) =>
+              theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+          }}
+        >
      <form onSubmit={handleSubmit(onSubmit)} className='formCheckout'>
+     <h4 className='titleCheck'>INGRESE SUS DATOS PARA CONTINUAR CON LA COMPRA</h4>
+
       <input className='formInput' placeholder='nombre' {...register("name", { required: true,  pattern: /^[A-Za-z]+$/i  })} />
       {errors.name?.type === 'required' && <p className='msjError'>Nombre requerido</p>}
       {errors.name?.type === 'pattern' && <p className='msjError'>El nombre esta incorrecto</p>}
 
-      <input className='formInput' placeholder='correo'{...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
+      <input className='formInput' placeholder='correo electronico'{...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
       {errors.email?.type === 'required' && <p className='msjError'>Correo electronico requerido</p>}
       {errors.email?.type === 'pattern' && <p className='msjError'>El e-mail no es valido</p>}
 
-      <input className='formInput' placeholder='telefono' type={'number'} {...register("cel", { required: true,  maxLength: 10, minLength: 10 })} />
+      <input className='formInput' placeholder='teléfono' type={'number'} {...register("cel", { required: true,  maxLength: 10, minLength: 10 })} />
       {errors.cel && (<p className='msjError'>El número telefonico debe tener 10 digitos</p>)}
       
       <input className='btnCkeckout' type="submit"/>
       
     </form>
+    </Paper>
     </> 
   )
   

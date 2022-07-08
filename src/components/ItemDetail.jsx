@@ -12,12 +12,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ItemCount from './ItemCount';
 import Rating from '@mui/material/Rating';
 import { useState } from 'react';
-import { Button } from '@mui/material';
 import ItemCart from './ItemCart';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { MiContext } from '../context/CartContext';
-
+import ItemListContainer from './ItemListContainer';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 export default function ItemDetail({ resultado }) {
     //const theme = useTheme();
@@ -60,19 +60,20 @@ export default function ItemDetail({ resultado }) {
                     <Typography component="div" variant="h5">
                         {name}
                     </Typography>
-                    <Typography color="text.secondary" >
-                        Código:{id}
-                    </Typography>
                     <Typography variant="subtitle1" color="text.secondary" component="div">
                         Descripción:{description}
+                    </Typography>
+                    <Typography color="text.secondary" >
+                        Stock disponible:{stock}
                     </Typography>
                     <Typography component="div" variant="h5">
                         ${price}
                     </Typography>
                 </CardContent>
 
-                {mostrarCont ? <ItemCount stock={stock} onAdd={onAdd}/> : <Link to='/cart' element={<ItemCart/>}><div className='contCount'><Button variant="contained">Ir al carrito</Button></div></Link> }
-                
+                {mostrarCont ? <ItemCount stock={stock} onAdd={onAdd}/> : <Link to='/cart' element={<ItemCart/>} className='contCount'><button className='btnCkeckout'><AddShoppingCartIcon/> Ir al carrito</button></Link> }
+                {mostrarCont || <Link to='/' element={<ItemListContainer/>}className='contCount'><button className='btnCkeckout'>Seguir compra</button></Link> }
+
                 <div>
                     <Accordion>
                         <AccordionSummary
