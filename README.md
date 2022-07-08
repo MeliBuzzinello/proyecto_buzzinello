@@ -2,7 +2,7 @@ BAKS: E-commerce con React
 Cómo correr este proyecto:
 Este proyecto se encuentra deployeado en Vercel, podés ingresar y probarlo en el siguiente link:
 
-https://react-davico-luz-d20.vercel.app/
+
 
 Si preferís correrlo de manera local, seguí los siguientes pasos:
 
