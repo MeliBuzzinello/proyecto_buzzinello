@@ -4,18 +4,27 @@ Este proyecto se encuentra deployeado en Vercel, podés ingresar y probarlo en e
 
 
 
-Si preferís correrlo de manera local, seguí los siguientes pasos:
+Para correrlo de manera local, seguí los siguientes pasos:
 
 Descargá el proyecto de este repositorio.
 Abrí el directorio del proyecto en tu editor de código favorito.
 Corré el comando npm start.
 Abrí http://localhost:3000 para verlo en tu navegador.
-Build
-Este proyecto fue realizado con React, trayendo los productos de una base de datos ubicada en Firebase.
+
 
 Librerías utilizadas
-React-router-dom: Paquete para implementar routing dinámico en una web app. En este proyecto, utilizado para el routing. Añadilo a tu proyecto con npm add react-router-dom.
-React-bootstrap: Librería que provee componentes de Bootstrap como componentes puros de React. En este proyecto, utilizada (entre otro lugares) en la Navbar y las card de producto. Añadilo a tu proyecto con npm add react-bootstrap.
-Formik: Librería utilizada para para validación y funcionamiento de forms. En este proyecto, utilizada en el form de envío de pedido (checkout). Añadilo a tu proyecto con npm add formik.
-React-icons: Librería utilizada para añadir íconos. En este proyecto, utilizada para el ícono de Cart y en la página de contacto. Añadilo a tu proyecto con npm install react-icons.
-SweetAlert & SweetAlert2: Librerías utilizadas para añadir alertas personalizadas. En este proyecto, utilizadas para avisar al usuario cuando intenta realizar una compra inválida (pedido mayor al stock, menor que 1, etcétera). Añadilas a tu proyecto con npm install sweetalert o npm install sweetalert2.
+
+Material UI: "@mui/material": "5.8.2"
+Librería de codigo abierto, implementa lengiake visual a los componentes. Usado en componentes como NavBar, Footer, Cart. 
+
+React-router-dom: "react-router-dom": "6.3.0"
+Paquete para implementar routing dinámico en una web app. 
+
+React-hook-form: "react-hook-form": "7.33.1"
+Librería utilizada para para validación y funcionamiento de formularios. 
+
+Emotion: "@emotion/react": "11.9.0"
+Libreria diseñada para escribir estilos css, en nuestro proyecto es utilizada para uso de Favicon.
+
+Firebase: "firebase": "9.8.4" 
+Plataforma diseñada y creada por Google, teniendo como principal función desarrollar y facilitar la creación de base de datos y servidor para laimplementacion de la pagina web. 
