@@ -18,6 +18,7 @@ import { useContext } from 'react';
 import { MiContext } from '../context/CartContext';
 import ItemListContainer from './ItemListContainer';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { Grid } from '@mui/material';
 
 export default function ItemDetail({ resultado }) {
     //const theme = useTheme();
@@ -36,14 +37,17 @@ export default function ItemDetail({ resultado }) {
 
     return (
         <Card sx={{ display: 'flex', justifyContent: 'center', height: '90%', width: '90%', margin: '30px'}}>
+              <Grid container spacing={2}>
+              <Grid item xs={12} md={4}> 
             <CardMedia
                 component="img"
                 sx={{ width: 280 }}
                 image={image}
                 alt="Imagen"
             />
+            </Grid>
+            <Grid item xs={12} md={8}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-
                 <Box
                     sx={{'& > legend': { mt: 2 }, textAlign: 'end', marginRight: '28px' }}>
                     <Typography component="legend">Calificación</Typography>
@@ -64,7 +68,7 @@ export default function ItemDetail({ resultado }) {
                         Descripción:{description}
                     </Typography>
                     <Typography color="text.secondary" >
-                        Stock disponible:{stock}
+                        Stock disponible:{stock ? stock : 'Sin stock' }
                     </Typography>
                     <Typography component="div" variant="h5">
                         ${price}
@@ -108,6 +112,8 @@ export default function ItemDetail({ resultado }) {
                     </Accordion>
                 </div>
             </Box>
+            </Grid>
+            </Grid>
         </Card>
     );
 }

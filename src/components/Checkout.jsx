@@ -10,6 +10,8 @@ import { Paper, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 
+import { doc, updateDoc} from 'firebase/firestore';
+
 
 
 export default function Checkout() {
@@ -18,10 +20,11 @@ export default function Checkout() {
 
   const [finalize , setFinalize] = useState('');
  
-  const {carrito , getItemPrice} = useContext(MiContext);
+  const {carrito , getItemPrice, clearCart} = useContext(MiContext);
 
   const { register, handleSubmit, formState: { errors }} = useForm();
-
+  
+  
     const onSubmit = (data) => {
     const total = getItemPrice();
     
@@ -34,8 +37,18 @@ export default function Checkout() {
     addDoc(orderCollections , order).then(({id})=> {
       setFinalize(id);
       });
-    
+
+      // Actualizacion de stock en firebase
+      for (let i = 0; i < carrito.length; i++) {
+        const idCart = carrito[i].id;
+        const stock = carrito[i].stock - carrito[i].cantidad;
+        const updateStock = doc(db , 'products', idCart);
+        updateDoc(updateStock, {stock: stock });
+      }
+
+      clearCart();
   };
+
 
   if(finalize){
     return(

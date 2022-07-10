@@ -121,7 +121,7 @@ export default function ItemCart() {
                 <Grid container spacing={2}>
                   <Grid item>
                   <Link to={'/item/'+ item.id} >
-                    <ButtonBase sx={{ width: 128, height: 128 }}>
+                    <ButtonBase sx={{ width: 'auto', height: 128 }}>
                       <Img alt="producto" src={item.image} />
                     </ButtonBase></Link>
                   </Grid>

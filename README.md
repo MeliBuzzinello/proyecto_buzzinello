@@ -2,7 +2,7 @@ BAKS: E-commerce con React
 Cómo correr este proyecto:
 Este proyecto se encuentra deployeado en Vercel, podés ingresar y probarlo en el siguiente link:
 
-
+https://proyecto-buzzinello-melibuzzinello.vercel.app/ 
 
 Para correrlo de manera local, seguí los siguientes pasos:
 
