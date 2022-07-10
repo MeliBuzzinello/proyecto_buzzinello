@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { createContext } from 'react';
 import { useState } from 'react';
 
-
 export const MiContext = createContext();
-// const {Provider} = MiContext;
+//const {Provider} = MiContext;
 
 export const CartContext = ({children}) =>  {
 

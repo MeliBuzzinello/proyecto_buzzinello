@@ -1,9 +1,9 @@
-//@ts-check
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import ItemDetail from './ItemDetail';
 import Loading from './Loading';
 import {doc , getDoc , getFirestore } from 'firebase/firestore';
+import Mistake from './Mistake';
 
 
 export default function ItemDetailContainer() {
@@ -12,18 +12,18 @@ export default function ItemDetailContainer() {
 
     const [loading, setLoading] = useState(Boolean);
     const [error, setError] = useState(Boolean)
-    const [resultado, setResultado] = useState({});
+    const [resulted, setResulted] = useState({});
 
     useEffect(() => {
         setLoading(true);
         setError(false);
-        setResultado({});
+        setResulted({});
 
         const db = getFirestore();
-        const productoFB = doc(db , 'products', idi);
+        const productFB = doc(db , 'products', idi);
 
-        getDoc(productoFB).then((snapshot)=>{
-             setResultado({...snapshot.data(), id: snapshot.id })
+        getDoc(productFB).then((snapshot)=>{
+             setResulted({...snapshot.data(), id: snapshot.id })
         }).catch((error) => {
                       setError(true)
             }).finally(() => setLoading(false))
@@ -32,8 +32,8 @@ export default function ItemDetailContainer() {
 
     return <>
         <div>{loading && <Loading />}</div>
-        <div>{error && 'Hubo un error en el servidor'}</div>
-        <div>{loading || <ItemDetail resultado={resultado} />}</div>
+        <div>{error && <Mistake/>}</div>
+        <div>{loading || <ItemDetail resulted={resulted}/>}</div>
     </>
 }
 

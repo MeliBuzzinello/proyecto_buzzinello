@@ -7,8 +7,8 @@ import { CardActionArea, CardActions } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ItemDetailContainer from './ItemDetailContainer';
 
-export default function Item({resultado}) {
-  const {id, name, color, price, image} = resultado;
+export default function Item({resulted}) {
+  const {id, name, color, price, image} = resulted;
   
   return (
     <>

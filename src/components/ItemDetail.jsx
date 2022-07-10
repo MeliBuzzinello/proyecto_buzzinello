@@ -20,19 +20,19 @@ import ItemListContainer from './ItemListContainer';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Grid } from '@mui/material';
 
-export default function ItemDetail({ resultado }) {
+export default function ItemDetail({ resulted }) {
     //const theme = useTheme();
-    const { id, name, description, price, stock, image } = resultado;
+    const { id, name, description, price, stock, image } = resulted;
 
     const [value, setValue] = React.useState(2);
-    const [mostrarCont, setMostrarCont] = useState(true);
+    const [showCont, setShowCont] = useState(true);
 
     const {isInCart, addItem} = useContext(MiContext);
 
     const onAdd  = (cantidad)=> {
-        setMostrarCont(false);
+        setShowCont(false);
         isInCart(id);
-        addItem(resultado, cantidad);
+        addItem(resulted, cantidad);
     }
 
     return (
@@ -75,8 +75,8 @@ export default function ItemDetail({ resultado }) {
                     </Typography>
                 </CardContent>
 
-                {mostrarCont ? <ItemCount stock={stock} onAdd={onAdd}/> : <Link to='/cart' element={<ItemCart/>} className='contCount'><button className='btnCkeckout'><AddShoppingCartIcon/> Ir al carrito</button></Link> }
-                {mostrarCont || <Link to='/' element={<ItemListContainer/>}className='contCount'><button className='btnCkeckout'>Seguir compra</button></Link> }
+                {showCont ? <ItemCount stock={stock} onAdd={onAdd}/> : <Link to='/cart' element={<ItemCart/>} className='contCount'><button className='btnCkeckout'><AddShoppingCartIcon/> Ir al carrito</button></Link> }
+                {showCont || <Link to='/' element={<ItemListContainer/>}className='contCount'><button className='btnCkeckout'>Seguir compra</button></Link> }
 
                 <div>
                     <Accordion>

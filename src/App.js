@@ -8,6 +8,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import { initializeApp } from "firebase/app";
 import Checkout from "./components/Checkout";
+import ItemDetail from "./components/ItemDetail";
 
 
 
@@ -35,6 +36,7 @@ function App() {
     <Route path="/productos" element={<ItemListContainer/>} />
     <Route path="/categoria/:id" element={<ItemListContainer/>} />
     <Route path="/item/:idi" element={<ItemDetailContainer/>} />
+    <Route path="/item/:idi" element={<ItemDetail/>} />
     <Route path="/cart" element={<ItemCart/>}/>
     <Route path="/checkout" element={<Checkout/>}/>
   </Routes>

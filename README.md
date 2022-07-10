@@ -1,4 +1,8 @@
 BAKS: E-commerce con React 
+Video GIF del proyecto
+
+https://giphy.com/gifs/WDphBdvBIMPsLfPa6w
+
 Cómo correr este proyecto:
 Este proyecto se encuentra deployeado en Vercel, podés ingresar y probarlo en el siguiente link:
 

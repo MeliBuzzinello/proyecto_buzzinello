@@ -11,18 +11,19 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import Mistake from "./Mistake";
 
 function ItemListContainer() {
   const { id } = useParams();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(Boolean);
-  const [resultado, setResultado] = useState([{}]);
+  const [resulted, setResulted] = useState([{}]);
 
   useEffect(() => {
     setLoading(true);
     setError(false);
-    setResultado([{}]);
+    setResulted([{}]);
 
     const db = getFirestore();
     const productsCollection = collection(db, "products");
@@ -31,7 +32,7 @@ function ItemListContainer() {
       const q = query(productsCollection, where("category", "==", id));
       getDocs(q)
         .then((snapshot) => {
-          setResultado(
+          setResulted(
             snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
           );
         })
@@ -40,7 +41,7 @@ function ItemListContainer() {
     } else {
       getDocs(productsCollection)
         .then((snapshot) => {
-          setResultado(
+          setResulted(
             snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
           );
         })
@@ -55,8 +56,8 @@ function ItemListContainer() {
     <>
       <p className="parrafo">{`Nuestros productos`}</p>
       <div>{loading && <Loading />}</div>
-      <div>{error && "Hubo un error en el servidor"}</div>
-      <div>{loading || <ItemList resultado={resultado} />}</div>
+      <div>{error && <Mistake/>}</div>
+      <div>{loading || <ItemList resulted={resulted} />}</div>
     </>
   );
 }
