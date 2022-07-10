@@ -9,7 +9,6 @@ import { useState } from 'react';
 import { Paper, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
-
 import { doc, updateDoc} from 'firebase/firestore';
 
 
