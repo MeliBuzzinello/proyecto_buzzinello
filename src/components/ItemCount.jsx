@@ -17,7 +17,7 @@ function ItemCount({ stock, onAdd}) {
         cantidad > 1 ? setCantidad(cantidad - 1) : setCantidad(cantidad - 0);
     };
 
-    if(stock === 0){
+    if(stock <= 0){
         return (
             <>
             <Link to='/' element={<ItemListContainer/>}className='contCount'><button className='btnCkeckout'>Sin stock</button></Link>

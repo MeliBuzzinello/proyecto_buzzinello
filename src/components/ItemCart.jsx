@@ -6,10 +6,11 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import ButtonBase from "@mui/material/ButtonBase";
 import "./ItemCart.css";
-import {IconButton } from "@mui/material";
+import { IconButton } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link } from "react-router-dom";
+import swal from 'sweetalert';
 
 
 export default function ItemCart() {
@@ -24,6 +25,17 @@ export default function ItemCart() {
     maxHeight: "100%",
   });
 
+  const handleFinal = ()=>{
+    for (let i = 0; i < carrito.length; i++) {
+      if(carrito[i].cantidad  > carrito[i].stock){
+        swal({
+          title: `La cantidad supera el stock disponible del producto ${carrito[i].name}`,
+          text:`SOLO SE REALIZARA EL ENVIO POR EL STOCK DISPONIBLE`,
+          icon: 'error',
+          button: 'Aceptar'
+        });
+    }
+  }}
 
   if (cantCart === 0) {
     return (
@@ -182,7 +194,7 @@ export default function ItemCart() {
           <button className='btnCkeckout' onClick={clearCart}>
             Vaciar carrito
           </button>
-          <Link to="/checkout"><button className='btnCkeckout'>Finalizar compra</button></Link>
+          <Link to="/checkout"><button onClick={()=>handleFinal()} className='btnCkeckout'>Finalizar compra</button></Link>
         </Paper>
       </div>
     </>
