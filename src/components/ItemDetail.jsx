@@ -75,8 +75,9 @@ export default function ItemDetail({ resulted }) {
                     </Typography>
                 </CardContent>
 
-                {showCont ? <ItemCount stock={stock} onAdd={onAdd}/> : <Link to='/cart' element={<ItemCart/>} className='contCount'><button className='btnCkeckout'><AddShoppingCartIcon/> Ir al carrito</button></Link> }
-                {showCont || <Link to='/' element={<ItemListContainer/>}className='contCount'><button className='btnCkeckout'>Seguir compra</button></Link> }
+                {showCont ? <ItemCount stock={stock} onAdd={onAdd}/> : <Link to='/cart' element={<ItemCart/>} className='contCount'><button className='btnCkeckout'><AddShoppingCartIcon/> Ir al carrito</button></Link> } 
+                
+               <Link to='/' element={<ItemListContainer/>} className='contCount'><button className='btnCkeckout'>Seguir compra</button></Link>
 
                 <div>
                     <Accordion>
